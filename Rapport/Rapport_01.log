@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.20)  20 FEB 2015 16:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.20)  23 FEB 2015 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -171,38 +171,55 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 9.
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen109
+\captionmargin@=\dimen110
+\captionwidth=\dimen111
+\caption@tempdima=\dimen112
+\caption@indent=\dimen113
+\caption@parindent=\dimen114
+\caption@hangindent=\dimen115
+)
+\c@ContinuedFloat=\count99
+Package caption Info: hyperref package is loaded.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 10.
 
 (./Rapport_01.aux)
 \openout1 = `Rapport_01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count99
-\scratchdimen=\dimen109
+\scratchcounter=\count100
+\scratchdimen=\dimen116
 \scratchbox=\box26
-\nofMPsegments=\count100
-\nofMParguments=\count101
+\nofMPsegments=\count101
+\nofMParguments=\count102
 \everyMPshowfont=\toks15
-\MPscratchCnt=\count102
-\MPscratchDim=\dimen110
-\MPnumerator=\count103
-\makeMPintoPDFobject=\count104
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen117
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks16
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -229,7 +246,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 16.
+Package hyperref Info: Link coloring ON on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -237,22 +254,24 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count105
+\c@section@level=\count106
 )
-LaTeX Info: Redefining \ref on input line 16.
-LaTeX Info: Redefining \pageref on input line 16.
-LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
 
 (./Rapport_01.out) (./Rapport_01.out)
 \@outlinefile=\write3
 \openout3 = `Rapport_01.out'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
+(Font)              <6> on input line 23.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]pdfTeX warning (ext4): dest
@@ -260,22 +279,22 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.23 \end{abstract}
+l.25 \end{abstract}
                     [1]
 Chapter 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 \chapter
+l.30 \chapter
              {Cleaning the data} [1
 
 ]
 Chapter 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 39.
+(Font)              <7> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 39.
+(Font)              <5> on input line 41.
 Package epstopdf Info: Source file: <Figures/position.eps>
 (epstopdf)                    date: 2015-02-20 14:25:29
 (epstopdf)                    size: 25811 bytes
@@ -284,21 +303,19 @@ Package epstopdf Info: Source file: <Figures/position.eps>
 (epstopdf)                    size: 7750 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/position-eps-conve
 rted-to.pdf Figures/position.eps>
-(epstopdf)             \includegraphics on input line 43.
+(epstopdf)             \includegraphics on input line 46.
 Package epstopdf Info: Output file is already uptodate.
 <Figures/position-eps-converted-to.pdf, id=40, 587.19376pt x 442.65375pt>
 File: Figures/position-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/position-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/position-eps-converted-to.pdf used on input li
-ne 43.
+ne 46.
 (pdftex.def)             Requested size: 293.59616pt x 221.32632pt.
+ [2
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (0.79643pt too wide) detected at line 63
+]
+Overfull \hbox (0.79643pt too wide) detected at line 68
 [][][] \OMS/cmsy/m/n/10 ' [] ^^C \OML/cmm/m/it/10 x\OT1/cmr/m/n/10 (\OML/cmm/m/
 it/10 t \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3) + [] \OMS/cmsy/m/n/10 ^^C \OML/
 cmm/m/it/10 x\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/
@@ -310,27 +327,49 @@ OT1/cmr/m/n/10 + 2) + [] \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 x\OT1/cmr/m/n/10
  (\OML/cmm/m/it/10 t \OT1/cmr/m/n/10 + 3)[]
  []
 
-[2
+Package epstopdf Info: Source file: <Figures/position_integrated.eps>
+(epstopdf)                    date: 2015-02-23 11:52:13
+(epstopdf)                    size: 38265 bytes
+(epstopdf)             Output file: <Figures/position_integrated-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2015-02-23 12:08:47
+(epstopdf)                    size: 10697 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/position_integrate
+d-eps-converted-to.pdf Figures/position_integrated.eps>
+(epstopdf)             \includegraphics on input line 75.
+Package epstopdf Info: Output file is already uptodate.
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
- [3 <./Figures/position-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+<Figures/position_integrated-eps-converted-to.pdf, id=49, 1517.67pt x 895.345pt
+>
+File: Figures/position_integrated-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figures/position_integrated-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/position_integrated-eps-converted-to.pdf used 
+on input line 75.
+(pdftex.def)             Requested size: 379.41656pt x 223.8357pt.
+
+Overfull \hbox (34.41656pt too wide) in paragraph at lines 75--76
+ [] 
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 89.
+[3 <./Figures/position-eps-converted-to.pdf>] [4 <./Figures/position_integrated
+-eps-converted-to.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
  (./Rapport_01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 89.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 89.
 Package rerunfilecheck Info: File `Rapport_01.out' has not changed.
 (rerunfilecheck)             Checksum: 0A934F7F31E7E5D37FE3E07F0DB766F1;275.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  ) 
 Here is how much of TeX's memory you used:
- 5148 strings out of 494958
- 76683 string characters out of 6179213
- 156715 words of memory out of 5000000
- 8342 multiletter control sequences out of 15000+600000
+ 6166 strings out of 494958
+ 95416 string characters out of 6179213
+ 175229 words of memory out of 5000000
+ 9351 multiletter control sequences out of 15000+600000
  8847 words of font info for 31 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 29i,7n,28p,490b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,7n,38p,490b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -340,10 +379,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb>
-Output written on Rapport_01.pdf (5 pages, 110103 bytes).
+Output written on Rapport_01.pdf (6 pages, 119355 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 110 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,7 @@
 \documentclass[10pt,a4paper]{report}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{caption}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -12,6 +13,7 @@
 
 %\renewcommand{\chaptername}{}
 %\renewcommand{\thechapter}{}
+\newcommand{\eqname}[1]{\tag*{#1}}% Tag equation with name
 
 \begin{document}
 
@@ -38,7 +40,8 @@ The hydraulic cylinder is controlled by applying a tension between -10V and 10V.
 
 We start by filtering the signal with a 12\textsuperscript{th} order digital low-pass filter with a cutoff frequency of 12Hz. We generate this filter using the python \textit{firwin} function from the \textit{scipy.signal} python library, that computes the filter coefficients using the windowing method. The choice of these parameters was done empirically. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
+\captionsetup{justification=centering}
 	\begin{center}
 		\includegraphics[scale=0.5]{Figures/position.eps}
 	\end{center}
@@ -56,12 +59,29 @@ We begin by using a central finite difference, plotting the speed versus time co
 %\begin{example}
 \\
 \vspace{2in}
-\textit{Central finite difference with accuracy of 6:}
+\begin{description}
+	\item{\textit{Central finite difference with accuracy of 6:}}
+\end{description}
 \begin{equation}
 \label{eq:central_difference}
 \dot{x(t)} \simeq \frac{-1}{60} * x(t-3) + \frac{3}{20} * x(t-2) -\frac{3}{4} * x(t-1) + \frac{3}{4} * x(t+1) -\frac{3}{20} * x(t+2) + \frac{1}{60} * x(t+3)
 \end{equation}
 %\end{example}
+
+
+\begin{figure}[ht]
+\captionsetup{justification=centering}
+\begin{center}
+	\includegraphics[scale=0.25]{Figures/position_integrated.eps}
+\end{center}
+	\caption{Filtered real position, and integrated positions from the backward differentiated computed speeds.}
+	
+\label{fig:intposition}
+\end{figure}
+
+To verify the accuracy of this differentiating, we integrate the computed speed in order to compare it with the real position. We perform a simple integration with a trapezoidal rule using the function \textit{trapz} from the python \textit{numpy} library. Figure \ref{fig:intposition} shows the filtered position, and the positions we get after we have integrated the backward differentiated data. They are reasonably close.
+
+
 
 
 

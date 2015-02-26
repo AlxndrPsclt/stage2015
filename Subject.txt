@@ -1,0 +1,13 @@
+Particle Swarm Optimization (PS0) Learning Algorithm For Neural Network Design has been
+reported to give good results in many technical applications: Forcasting of power load, urban
+trafic and marine accidents. Fault Diagnosis of networked synchronization control systems, rolling bearings and electronic and electrical circuits. Control applications include steer by line and robot force controllers.
+The scope of Work proposed includes :
+
+1. Comparative presentation (with simulations) of some Learning Algorithms for Neural
+Networks : for example : Gradient Descent based Learning Algorithm-Backpropagation
+(BP) [2], method based on sensitivity analysis, methods for Real Time training of Neural
+Networks
+2. Presentation of Swarm Particle Optimization
+3. These algorithms will then be applied to the control of a hydraulic cylinder.
+When a goal position is given with a step input, the real position  either takes a time t1 to arrive at that value without exceding it (without overshoot) or it jumps faster to this value (in a time t2<t1), exceeds it, then comes back to the desired value, oscillating around that goal value (overshoot). The faster the cylinder gets to the desired position, the bigger are the oscillations. These two behaviors are mutually exclusive.
+Using data collected beforehand, we will build a system that should allow setting the desired behaviour with a simple slider, first using offline machine learning, then adapting the system to work online. A low value on the slider should mean a slow arrival of the cylinder to its final value, but without overshoot; whereas a high value would mean getting to the desired value fast, even at the cost of overshoot.
