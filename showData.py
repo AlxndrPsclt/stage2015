@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#Script not finished....
+
 
 import math
 import matplotlib.pyplot as plt
@@ -7,7 +9,7 @@ import scipy
 from scipy import signal
 import numpy as np
 import os
-os.chdir('/home/alex/Documents')
+#os.chdir('/home/alex/Documents')
 
 
 sample_rate = 1000
@@ -34,11 +36,12 @@ def read_array(filename, dtype, separator=','):
         data[i] = cast[dtype[i]](data[i])
     return np.rec.array(data, dtype=dtype)
 
-mydescr = np.dtype([('czas', 'float32'), ('sterowanie', 'float32'), ('pozycja', 'float32'), ('generatorPRBS', 'float32'), ('V1', 'float32'), ('V2', 'float32') , ('Vm', 'float32') ])
+descrRawData = np.dtype([('czas', 'float32'), ('sterowanie', 'float32'), ('pozycja', 'float32'), ('generatorPRBS', 'float32')])
 
-
-myrecarray = read_array('Pomiar1_02.csv', mydescr, ";")
-
+halfDataa = read_array('Data/splitPomiaraa.csv', descrRawData, ";")
+halfDatab = read_array('Data/splitPomiarab.csv', descrRawData, ";")
+halfDatac = read_array('Data/splitPomiarac.csv', descrRawData, ";")
+halfDatad = read_array('Data/splitPomiarad.csv', descrRawData, ";")
 
 
 #tool for convolutions
@@ -109,162 +112,110 @@ def v_backwardDiff(pos, derivative=1, order =4):
     return convo_cut(pos , coeff, order)
 
 
-#Plot the fft
-
-V1_fft = np.fft.fft(myrecarray['V1'])
-
-pozycja_fft = np.fft.fft(myrecarray['pozycja'])
-
-
-
-
 #Synthetize the position filter, and filter the signal
 
 taps = signal.firwin(order, cutoff/nyq)
 
-filteredPos = convo_cut(myrecarray['pozycja'], taps)
+filteredPosa = convo_cut(halfDataa['pozycja'], taps)
+filteredPosb = convo_cut(halfDatab['pozycja'], taps)
+filteredPosc = convo_cut(halfDatac['pozycja'], taps)
+filteredPosd = convo_cut(halfDatad['pozycja'], taps)
 
-filteredPos_fft = np.fft.fft(filteredPos)
-
-
-
-
-#Get speed using different methods
-
-v_raw = v_numericalDiff(myrecarray['pozycja'])
-#V_filteredPos = v_numericalDiff(filteredPos)
-#V_backard = v_backwardDiff(myrecarray['pozycja'])
-#V_backard_filtered = v_backwardDiff(filteredPos)
+v_backwardDiffa = v_backwardDiff(filteredPosa, 1, 4)
 
 
-v_numericalDiffs = []
-for i in range(1,5):
-    v_numericalDiffs.append(v_numericalDiff(filteredPos, 1, i))
+#Plots
 
-
-
-v_backwardDiffs=[]
-for i in range(1,7):
-    v_backwardDiffs.append(v_backwardDiff(filteredPos, 1, i))
-
-
-
-#-----Integrate-----------
-integrated_numerical_speeds = []
-for sig in v_numericalDiffs:
-    integrated_speed= np.cumsum(sig)
-    integrated_speed*=-1
-    integrated_speed+=filteredPos[0]
-    integrated_speed=np.concatenate([[filteredPos[0]],integrated_speed])
-    integrated_numerical_speeds.append(integrated_speed)
-
-
-
-integrated_backward_speeds = []
-for sig in v_backwardDiffs:
-    integrated_speed= np.cumsum(sig)
-    integrated_speed*=-1
-    integrated_speed+=filteredPos[0]
-    integrated_speed=np.concatenate([[filteredPos[0]],integrated_speed])
-    integrated_backward_speeds.append(integrated_speed)
-
-
-
-
-
-# Plots
-
-##plt.figure(1)
-##plt.title('Position FFT')
-##
-##
-##plt.plot(abs(pozycja_fft))
-##plt.plot(abs(filteredPos_fft))
-
-
-#------Plot 2------------
 plt.figure(2)
 plt.title('Position')
 
-plt.plot(myrecarray['pozycja'], label="pos")
+plt.plot(halfDatab['pozycja'], label="posb")
 plt.plot(filteredPos, label="filtered_pos")
 
 plt.legend()
+#
+#
+#
+plt.figure(1)
+plt.title('Position')
 
 
-
-
-#------Plot 3------------
-plt.figure(3)
-plt.title('Central Speed using different precisions')
-
-#raw
-v_plot, = plt.plot(v_raw, label="V raw")
-
-#filtered central
-v_numericalDiffsPlots=[]
-for i in range(len(v_numericalDiffs)):
-    v_filteredPos_plot, = plt.plot(v_numericalDiffs[i], label="Order="+str(i+1))
-    v_numericalDiffsPlots.append(v_filteredPos_plot)
-plt.legend()
-
-
-
-
-#------Plot 4------------
-plt.figure(4)
-plt.title('Backward Speed using different precisions')
-
-#raw
-v_plot, = plt.plot(v_raw, label="V raw")
-
-#filtered backward
-v_backwardDiffsPlots=[]
-for i in range(len(v_backwardDiffs)):
-    v_filteredPos_plot, = plt.plot(v_backwardDiffs[i], label="Order="+str(i+1))
-    v_backwardDiffsPlots.append(v_filteredPos_plot)
-
-
-plt.legend()
-
-
-
-
-#------Plot 5------------
-plt.figure(5)
-integrated_numerical_speeds_plots = []
-plt.title('Real Position and position integrated from central derivative')
-
-#data postion and smoothed position
-plt.plot(myrecarray['pozycja'], label="pos")
+plt.plot(halfDataa['pozycja'], label="pos")
 plt.plot(filteredPos, label="filtered_pos")
 
-#Integrated positions
-for i in range(len(integrated_numerical_speeds)):
-    integrated_numerical_speeds_plot, = plt.plot(integrated_numerical_speeds[i], label="Order="+str(i+1))
-    integrated_numerical_speeds_plots.append(integrated_numerical_speeds_plot)
 plt.legend()
-
-
-
-#------Plot 6------------
-plt.figure(6)
-integrated_backward_speeds_plots = []
-plt.title('Real Position and position integrated from backward derivative')
-
-#data postion and smoothed position
-plt.plot(myrecarray['pozycja'], label="pos")
-filtered_position_plot = plt.plot(filteredPos, label="filtered_pos")
-plt.setp(filtered_position_plot, linewidth=5.0)
-
-#Integrated positions
-for i in range(len(integrated_backward_speeds)):
-    if i<3:
-        integrated_backward_speeds_plot, = plt.plot(integrated_backward_speeds[i], label="Order="+str(i+1))
-        integrated_backward_speeds_plots.append(integrated_backward_speeds_plot)
-plt.legend()
-
-
+#
+##------Plot 3------------
+#plt.figure(3)
+#plt.title('Central Speed using different precisions')
+#
+##raw
+#v_plot, = plt.plot(v_raw, label="V raw")
+#
+##filtered central
+#v_numericalDiffsPlots=[]
+#for i in range(len(v_numericalDiffs)):
+#    v_filteredPos_plot, = plt.plot(v_numericalDiffs[i], label="Order="+str(i+1))
+#    v_numericalDiffsPlots.append(v_filteredPos_plot)
+#plt.legend()
+#
+#
+#
+#
+##------Plot 4------------
+#plt.figure(4)
+#plt.title('Backward Speed using different precisions')
+#
+##raw
+#v_plot, = plt.plot(v_raw, label="V raw")
+#
+##filtered backward
+#v_backwardDiffsPlots=[]
+#for i in range(len(v_backwardDiffs)):
+#    v_filteredPos_plot, = plt.plot(v_backwardDiffs[i], label="Order="+str(i+1))
+#    v_backwardDiffsPlots.append(v_filteredPos_plot)
+#
+#
+#plt.legend()
+#
+#
+#
+#
+##------Plot 5------------
+#plt.figure(5)
+#integrated_numerical_speeds_plots = []
+#plt.title('Real Position and position integrated from central derivative')
+#
+##data postion and smoothed position
+#plt.plot(myrecarray['pozycja'], label="pos")
+#plt.plot(filteredPos, label="filtered_pos")
+#
+##Integrated positions
+#for i in range(len(integrated_numerical_speeds)):
+#    integrated_numerical_speeds_plot, = plt.plot(integrated_numerical_speeds[i], label="Order="+str(i+1))
+#    integrated_numerical_speeds_plots.append(integrated_numerical_speeds_plot)
+#plt.legend()
+#
+#
+#
+##------Plot 6------------
+#plt.figure(6)
+#integrated_backward_speeds_plots = []
+#plt.title('Real Position and position integrated from backward derivative')
+#
+##data postion and smoothed position
+#plt.plot(myrecarray['pozycja'], label="pos")
+#filtered_position_plot = plt.plot(filteredPos, label="filtered_pos")
+#plt.setp(filtered_position_plot, linewidth=5.0)
+#
+##Integrated positions
+#for i in range(len(integrated_backward_speeds)):
+#    if i<3:
+#        integrated_backward_speeds_plot, = plt.plot(integrated_backward_speeds[i], label="Order="+str(i+1))
+#        integrated_backward_speeds_plots.append(integrated_backward_speeds_plot)
+#plt.legend()
+#
+#
 
 
 

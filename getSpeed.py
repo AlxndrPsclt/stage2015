@@ -7,7 +7,7 @@ import scipy
 from scipy import signal
 import numpy as np
 import os
-os.chdir('/home/alex/Documents')
+#os.chdir('/home/alex/Documents')
 
 
 sample_rate = 1000
@@ -37,7 +37,7 @@ def read_array(filename, dtype, separator=','):
 mydescr = np.dtype([('czas', 'float32'), ('sterowanie', 'float32'), ('pozycja', 'float32'), ('generatorPRBS', 'float32'), ('V1', 'float32'), ('V2', 'float32') , ('Vm', 'float32') ])
 
 
-myrecarray = read_array('Pomiar1_02.csv', mydescr, ";")
+myrecarray = read_array('Data/Pomiar1_02.csv', mydescr, ";")
 
 
 
